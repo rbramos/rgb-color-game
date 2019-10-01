@@ -1,0 +1,24 @@
+{
+  "name": "rgb-color-game",
+  "version": "1.0.0",
+  "description": "The great RGB color guessing game",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass ./src/sass/main.scss ./src/css/style.comp.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass ./src/sass/main.scss ./src/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" ./src/css/style.comp.css -o ./src/css/style.prefix.css",
+    "compress:css": "node-sass ./src/css/style.prefix.css ./src/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "rbramos",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1"
+  }
+}
